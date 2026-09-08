@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prashant Kumar Nanda | Senior Treasury & Forex Specialist</title>
+  <meta name="description" content="Portfolio of Prashant Kumar Nanda — Senior Treasury & Forex Dealer with 9+ years experience in merchant FX, cross-currency swaps, Nostro reconciliation, and quantitative modeling." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons (Lucide) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js for Financial Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-theme">
+
+  <!-- Financial Market Strip / Ticker Bar -->
+  <div class="market-ticker-wrap">
+    <div class="ticker-heading">
+      <span class="live-dot"></span>
+      <span>MARKETS PULSE</span>
+    </div>
+    <div class="ticker-scroll-track" id="marketTicker">
+      <!-- Populated via JS with realistic treasury indicators -->
+      <span class="ticker-item"><strong>USD/INR</strong> 83.92 <span class="trend up">+0.04%</span></span>
+      <span class="ticker-item"><strong>EUR/USD</strong> 1.0845 <span class="trend down">-0.12%</span></span>
+      <span class="ticker-item"><strong>RBI REPO RATE</strong> 6.50% <span class="trend flat">UNCH</span></span>
+      <span class="ticker-item"><strong>INDIA 10Y</strong> 6.85% <span class="trend down">-2 bps</span></span>
+      <span class="ticker-item"><strong>US 10Y</strong> 4.18% <span class="trend up">+3 bps</span></span>
+      <span class="ticker-item"><strong>SOFR (1M)</strong> 5.32% <span class="trend flat">SECURED</span></span>
+      <span class="ticker-item"><strong>USD/JPY</strong> 152.40 <span class="trend up">+0.25%</span></span>
+      <span class="ticker-item"><strong>GBP/INR</strong> 107.15 <span class="trend up">+0.18%</span></span>
+      <!-- Loop for continuous marquee -->
+      <span class="ticker-item"><strong>USD/INR</strong> 83.92 <span class="trend up">+0.04%</span></span>
+      <span class="ticker-item"><strong>EUR/USD</strong> 1.0845 <span class="trend down">-0.12%</span></span>
+      <span class="ticker-item"><strong>RBI REPO RATE</strong> 6.50% <span class="trend flat">UNCH</span></span>
+      <span class="ticker-item"><strong>INDIA 10Y</strong> 6.85% <span class="trend down">-2 bps</span></span>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-crest">PKN</div>
+        <div class="brand-text">
+          <span class="name">Prashant K. Nanda</span>
+          <span class="title">TREASURY & FOREX SPECIALIST</span>
+        </div>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">Overview</a>
+        <a href="#track-record" class="nav-link">Track Record</a>
+        <a href="#competencies" class="nav-link">Competencies</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#credentials" class="nav-link">Education & Accreditations</a>
+        <a href="#simulator" class="nav-link">FX Modeling</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="mailto:prashantnanda93@yahoo.com" class="btn btn-primary">
+          <i data-lucide="mail"></i>
+          <span>Connect</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="executive-badge">
+          <span class="badge-icon"><i data-lucide="shield-check"></i></span>
+          <span>9+ Years Institutional Treasury & Commercial Banking Expertise</span>
+        </div>
+
+        <h1 class="hero-title">
+          Maximizing Forex Yield, Structuring Swaps & Anchoring 
+          <span class="gold-gradient">Institutional Treasury Operations</span>
+        </h1>
+
+        <p class="hero-subtext">
+          Manager & Treasury Specialist with a verified track record in driving front-office merchant forex desk profitability, pricing high-volume cross-currency transactions, managing multi-currency Nostro reconciliations, and architecting quantitative R-based MIS models.
+        </p>
+
+        <div class="hero-badges-row">
+          <span class="tag-pill"><i data-lucide="building-2"></i> Bank of Baroda (MM2 Scale)</span>
+          <span class="tag-pill"><i data-lucide="graduation-cap"></i> MBA (Finance), XLRI Jamshedpur</span>
+          <span class="tag-pill"><i data-lucide="award"></i> Certified Treasury Professional & CAIIB</span>
+          <span class="tag-pill"><i data-lucide="map-pin"></i> Mumbai (BKC Corporate Office)</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#track-record" class="btn btn-gold">
+            <i data-lucide="trending-up"></i>
+            <span>View Deal Sheet & Metrics</span>
+          </a>
+          <button class="btn btn-glass" onclick="openContactModal()">
+            <i data-lucide="send"></i>
+            <span>Initiate Dialogue</span>
+          </button>
+          <button class="btn btn-outline" onclick="window.print()">
+            <i data-lucide="printer"></i>
+            <span>Print Dossier</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Executive Summary Card -->
+      <div class="hero-card-column">
+        <div class="executive-terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">TREASURY METRICS DESK // FY 2024-25</span>
+            <span class="status-indicator live">VERIFIED</span>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-box highlighted">
+              <div class="metric-label">MERCHANT FOREX PROFIT (FY 24-25)</div>
+              <div class="metric-value">₹272.89 <span class="unit">Cr</span></div>
+              <div class="metric-delta positive">
+                <i data-lucide="arrow-up-right"></i> +5.03% vs ₹259.83 Cr (FY 23-24)
+              </div>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-label">SANCTIONED MARGIN PROPOSALS</div>
+              <div class="metric-value">94 <span class="unit">Deals</span></div>
+              <div class="metric-note">Optimized turnaround time & client turnover</div>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-label">OPERATIONAL TENURE</div>
+              <div class="metric-value">9+ <span class="unit">Years</span></div>
+              <div class="metric-note">Banking tenure since June 2016 (Scale MM2)</div>
+            </div>
+
+            <div class="metric-box">
+              <div class="metric-label">GOVERNANCE & COMPLIANCE</div>
+              <div class="metric-value">100%</div>
+              <div class="metric-note">Adherence to RBI & FEDAI regulatory guidelines</div>
+            </div>
+          </div>
+
+          <div class="terminal-footer">
+            <div class="footer-status">
+              <i data-lucide="terminal"></i>
+              <span>Core Stack: Bloomberg • R Analytics • GTP • Finacle</span>
+            </div>
+            <a href="mailto:prashantnanda93@yahoo.com" class="direct-link">prashantnanda93@yahoo.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Key Highlights / Institutional Pitch -->
+  <section id="about" class="section-padding bg-subtle">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">EXECUTIVE SUMMARY</span>
+        <h2 class="section-title">Bridging Capital Markets Acumen With Risk Rigor</h2>
+        <p class="section-subtitle">
+          A rare blend of front-office dealing dynamism, back-office Nostro accounting mastery, and quantitative analytical modeling.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon gold"><i data-lucide="bar-chart-3"></i></div>
+          <h3>Front-Office Merchant Forex Mastery</h3>
+          <p>
+            Directly orchestrated merchant forex trading strategies surpassing profit targets of ₹272+ Crores. Expert in pricing spot, forward, swap, and cross-currency merchant covers, maintaining competitive card rates and authoring daily Forex Bulletins.
+          </p>
+          <ul class="pillar-points">
+            <li><i data-lucide="check"></i> Multi-currency pricing & tailored client margin negotiation</li>
+            <li><i data-lucide="check"></i> High-volume cross-currency & derivative swap penetration</li>
+            <li><i data-lucide="check"></i> Corporate merchant relationship management</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon blue"><i data-lucide="layers"></i></div>
+          <h3>Back-Office & Nostro Settlement Architecture</h3>
+          <p>
+            Command of global treasury platforms (GTP) and Nostro account reconciliation. Extensive background in export bill settlement, clean forward contracts, and swift discrepancy resolution with international correspondent banks.
+          </p>
+          <ul class="pillar-points">
+            <li><i data-lucide="check"></i> Multi-currency Nostro balance optimization & audit reconciliation</li>
+            <li><i data-lucide="check"></i> Erroneous deal troubleshooting & back-office process fixes</li>
+            <li><i data-lucide="check"></i> Zero-penalty regulatory compliance for export/import transactions</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon green"><i data-lucide="binary"></i></div>
+          <h3>Quantitative Modeling & Automation</h3>
+          <p>
+            Armed with an engineering foundation (B.Tech Mechanical) and an XLRI Finance pedigree. Builds automated financial reporting, portfolio attribution, and risk dashboards in R and Advanced Excel to slash reporting turnaround time.
+          </p>
+          <ul class="pillar-points">
+            <li><i data-lucide="check"></i> R-based portfolio optimization & risk modeling</li>
+            <li><i data-lucide="check"></i> Automated daily MIS generation & P&L attribution</li>
+            <li><i data-lucide="check"></i> Real-time spread sensitivity & margin analytics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance & Track Record Section (Deal Sheet) -->
+  <section id="track-record" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">QUANTIFIED IMPACT</span>
+        <h2 class="section-title">Treasury Performance & Deal Sheet</h2>
+        <p class="section-subtitle">
+          Hard numbers reflecting bottom-line profitability, operational scale, and risk optimization.
+        </p>
+      </div>
+
+      <div class="record-container">
+        <!-- Interactive Chart Card -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Merchant Forex Profit Trajectory</h3>
+              <span class="chart-subtitle">Bank of Baroda Corporate Office — Treasury Merchant Desk</span>
+            </div>
+            <div class="chart-legend-badge">
+              <span class="legend-box"></span> Reported Performance (₹ in Crores)
+            </div>
+          </div>
+          <div class="chart-body">
+            <canvas id="profitChart" height="230"></canvas>
+          </div>
+          <div class="chart-footer-stats">
+            <div class="footer-stat-col">
+              <span class="fs-label">FY 2023-24 Profit</span>
+              <span class="fs-val">₹259.83 Cr</span>
+            </div>
+            <div class="footer-stat-col">
+              <span class="fs-label">FY 2024-25 Profit</span>
+              <span class="fs-val gold">₹272.89 Cr</span>
+            </div>
+            <div class="footer-stat-col">
+              <span class="fs-label">YoY Net Expansion</span>
+              <span class="fs-val green">+₹13.06 Cr (+5.03%)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deal Accomplishments List -->
+        <div class="deal-metrics-list">
+          <div class="deal-item">
+            <div class="deal-badge-num">01</div>
+            <div class="deal-content">
+              <h4>94 Strategic Margin Proposals Sanctioned</h4>
+              <p>Tailored bilateral margin adjustments for marquee commercial and MSME clients, accelerating turnaround times and dramatically increasing foreign exchange volume throughput.</p>
+              <div class="deal-tags">
+                <span>Margin Negotiation</span>
+                <span>FX Turnover</span>
+                <span>Reduced TAT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="deal-item">
+            <div class="deal-badge-num">02</div>
+            <div class="deal-content">
+              <h4>Forex Bulletin & Card Rate Automation</h4>
+              <p>Designed structured dissemination protocols for daily forex rates, market intelligence bulletins, and merchant desk P&L MIS, enhancing transparency across nationwide branches.</p>
+              <div class="deal-tags">
+                <span>Market Intelligence</span>
+                <span>Card Rates</span>
+                <span>Branch Operations</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="deal-item">
+            <div class="deal-badge-num">03</div>
+            <div class="deal-content">
+              <h4>Regulatory Compliance & Export Bill Scrutiny</h4>
+              <p>Maintained stringent compliance standards under FEDAI and RBI prudential regulations for export bills and currency forward bookings, safeguarding the bank against audit and currency risks.</p>
+              <div class="deal-tags">
+                <span>FEDAI Guidelines</span>
+                <span>RBI Compliance</span>
+                <span>Risk Management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Competencies Matrix -->
+  <section id="competencies" class="section-padding bg-subtle">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">TECHNICAL MATRIX</span>
+        <h2 class="section-title">Institutional Banking & Treasury Competencies</h2>
+        <p class="section-subtitle">
+          Comprehensive capabilities honed across trading floors, back-office settlements, and credit operations.
+        </p>
+      </div>
+
+      <div class="competencies-grid">
+        <!-- Card 1 -->
+        <div class="comp-card">
+          <div class="comp-icon"><i data-lucide="landmark"></i></div>
+          <h4>Treasury & FX Operations</h4>
+          <p>Merchant Forex Dealing, Cash/Tom/Spot and Forward Contracts, Cross-Currency Hedging, Currency Swaps, and Bourse Trading Operations.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Mastery</span><span>Advanced Dealer</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 95%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="comp-card">
+          <div class="comp-icon"><i data-lucide="scale"></i></div>
+          <h4>Regulatory & FEDAI Compliance</h4>
+          <p>Deep familiarity with RBI master directions, FEDAI rules for trade and merchant forex, AML/KYC prudential norms, and statutory reporting frameworks.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Regulatory Adherence</span><span>Exemplary</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 96%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="comp-card">
+          <div class="comp-icon"><i data-lucide="refresh-cw"></i></div>
+          <h4>Nostro Settlements & GTP</h4>
+          <p>End-to-end multi-currency Nostro account reconciliation, SWIFT messaging protocols, fund positioning, and Global Treasury Platform administration.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Reconciliation Speed</span><span>High Precision</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 92%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="comp-card">
+          <div class="comp-icon"><i data-lucide="code-2"></i></div>
+          <h4>R Financial Modeling & MIS</h4>
+          <p>Using R for statistical time-series analysis, currency volatility forecasting, yield curves, portfolio optimization, and automated MIS reporting pipelines.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Analytical Stack</span><span>Proficient</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 88%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="comp-card">
+          <div class="comp-icon"><i data-lucide="users"></i></div>
+          <h4>Corporate Relationship Management</h4>
+          <p>Negotiation of treasury spreads, advisory on export-import foreign exchange exposure, cross-border corporate trade solutions, and client onboarding.</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Client Satisfaction</span><span>Consistent</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 94%;"></div></div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="comp-card">
+          <div class="comp-icon"><i data-lucide="monitor"></i></div>
+          <h4>Systems & Market Platforms</h4>
+          <p>Bloomberg Terminal, Finacle Treasury / Core Banking Solution, dealing systems, Advanced MS Excel (Macros, dynamic financial lookup, sensitive pivots).</p>
+          <div class="skill-bar-wrap">
+            <div class="skill-label"><span>Platform Dexterity</span><span>Expert</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Trajectory / Experience Timeline -->
+  <section id="experience" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">CAREER TRAJECTORY</span>
+        <h2 class="section-title">9+ Years of Progressive Banking Leadership</h2>
+        <p class="section-subtitle">
+          From rural and semi-urban branch operational roots to managing premier desks at Bank of Baroda's Corporate Treasury in Bandra Kurla Complex (BKC).
+        </p>
+      </div>
+
+      <div class="timeline">
+        <!-- Item 1: Current Back Office GTP & Front Office -->
+        <div class="timeline-card current">
+          <div class="timeline-indicator">
+            <span class="pulse-ring"></span>
+            <div class="dot-inner"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge-row">
+              <span class="role-scale">Scale MM2 (Manager)</span>
+              <span class="timeline-date">Apr 2025 – Present</span>
+            </div>
+            <h3 class="role-title">Treasury Back Office – GTP (Global Treasury Platform)</h3>
+            <h4 class="company-name">Bank of Baroda • Special Treasury Department, BKC Mumbai</h4>
+            <p class="role-desc">
+              Supervising back-office operations, GTP system validation, post-deal settlements, and multi-currency institutional clearing with seamless STP (Straight-Through Processing).
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2: Front Office Merchant Desk -->
+        <div class="timeline-card">
+          <div class="timeline-indicator">
+            <div class="dot-inner"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge-row">
+              <span class="role-scale">Scale MM2 / JM1</span>
+              <span class="timeline-date">Mar 2022 – Apr 2025</span>
+            </div>
+            <h3 class="role-title">Specialist – Treasury Front Office Merchant FX Desk</h3>
+            <h4 class="company-name">Bank of Baroda • Corporate Center, BKC Mumbai</h4>
+            <ul class="role-achievements">
+              <li>
+                <strong>Surpassed Desk Profit Targets:</strong> Generated <strong>₹272.89 Crore</strong> profit in FY 2024-25 (outperforming FY 2023-24's ₹259.83 Cr), driving cross-currency swaps and forward cover sales.
+              </li>
+              <li>
+                <strong>Sanctioned 94 Margin Proposals:</strong> Structuring customized spreads for high-value corporate clients, reducing TAT and swelling aggregate turnover.
+              </li>
+              <li>
+                <strong>Daily Forex Intelligence:</strong> Authored daily Forex Bulletin, calculated official card rates, and disseminated P&L MIS to senior management.
+              </li>
+              <li>
+                <strong>Audit & FEDAI Adherence:</strong> Maintained zero-defect compliance for export bills and forward contracts under RBI guidelines.
+              </li>
+              <li>
+                <strong>Knowledge Transfer:</strong> Conducted branch training sessions to remediate erroneous forex deal bookings and streamline trade operations.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Item 3: Treasury Back Office & Nostro Reconciliation -->
+        <div class="timeline-card">
+          <div class="timeline-indicator">
+            <div class="dot-inner"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge-row">
+              <span class="role-scale">Scale JM1</span>
+              <span class="timeline-date">Jan 2021 – Mar 2022</span>
+            </div>
+            <h3 class="role-title">Treasury Back Office & Nostro Account Reconciliation</h3>
+            <h4 class="company-name">Bank of Baroda • Corporate Center, Mumbai</h4>
+            <p class="role-desc">
+              Headed multi-currency Nostro account settlements and mirror ledger reconciliations. Interfaced with global correspondent banks to clear unapplied balances, foreign remittances, and regulatory returns.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 4: Branch Banking Operations -->
+        <div class="timeline-card">
+          <div class="timeline-indicator">
+            <div class="dot-inner"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge-row">
+              <span class="role-scale">Officer (Scale JM1)</span>
+              <span class="timeline-date">Jul 2016 – Jan 2021</span>
+            </div>
+            <h3 class="role-title">Branch Banking Operations & Credit Administration</h3>
+            <h4 class="company-name">Bank of Baroda • Sambalpur Zone, Odisha (Bargarh, Kantabanji, Kachharu)</h4>
+            <p class="role-desc">
+              Orchestrated front-line banking operations, retail/MSME lending, government business, and internal audits across rural and semi-urban commercial branches, cementing a rock-solid foundation in commercial banking compliance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FX & Margin Sensitivity Tool -->
+  <section id="simulator" class="section-padding bg-subtle">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">INTERACTIVE FINANCIAL BENCH</span>
+        <h2 class="section-title">Merchant FX Margin & Spread Calculator</h2>
+        <p class="section-subtitle">
+          An interactive tool demonstrating front-office merchant desk pricing logic: evaluate spread realization, transaction profit, and volume yields.
+        </p>
+      </div>
+
+      <div class="simulator-box">
+        <div class="sim-controls">
+          <div class="sim-group">
+            <label for="currencyPair">Currency Pair</label>
+            <select id="currencyPair" class="sim-input" onchange="calculateFX()">
+              <option value="USDINR">USD/INR (Interbank: 83.92)</option>
+              <option value="EURINR">EUR/INR (Interbank: 91.05)</option>
+              <option value="GBPINR">GBP/INR (Interbank: 107.15)</option>
+              <option value="JPYINR">JPY/INR (Interbank: 0.5510)</option>
+            </select>
+          </div>
+
+          <div class="sim-group">
+            <label for="dealVolume">Deal Volume ($ / Base Currency)</label>
+            <input type="number" id="dealVolume" class="sim-input" value="1000000" step="100000" oninput="calculateFX()" />
+            <span class="input-helper">e.g. $1,000,000 corporate flow</span>
+          </div>
+
+          <div class="sim-group">
+            <label for="spreadPips">Merchant Spread (Paise / Margin)</label>
+            <div class="range-wrap">
+              <input type="range" id="spreadPips" min="1" max="50" value="8" step="0.5" oninput="updateSpreadDisplay(this.value); calculateFX();" />
+              <span id="spreadDisplay" class="range-val">8.0 Paise</span>
+            </div>
+            <span class="input-helper">Bespoke sanctioned margin</span>
+          </div>
+        </div>
+
+        <div class="sim-results">
+          <div class="res-title">Realized Desk Profitability</div>
+          <div class="res-grid">
+            <div class="res-item">
+              <span class="res-lbl">Merchant Quoted Rate</span>
+              <span class="res-val" id="quoteRate">83.8400</span>
+            </div>
+            <div class="res-item">
+              <span class="res-lbl">Gross Spread Captured</span>
+              <span class="res-val green" id="capturedSpread">₹80,000</span>
+            </div>
+            <div class="res-item">
+              <span class="res-lbl">Transaction Turnover</span>
+              <span class="res-val" id="totalTurnover">₹8.39 Cr</span>
+            </div>
+            <div class="res-item highlighted">
+              <span class="res-lbl">Annualized Yield on 50 Cycles</span>
+              <span class="res-val gold" id="annualizedYield">₹40.00 Lakhs</span>
+            </div>
+          </div>
+          <div class="res-disclaimer">
+            *Demonstration model reflecting real-world margin sanctioning workflows utilized on Bank of Baroda's Merchant FX desk.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Certifications -->
+  <section id="credentials" class="section-padding">
+    <div class="container">
+      <div class="credentials-grid">
+        <!-- Education Column -->
+        <div class="cred-column">
+          <div class="cred-header">
+            <div class="cred-icon"><i data-lucide="graduation-cap"></i></div>
+            <div>
+              <span class="section-eyebrow">ACADEMIC FOUNDATION</span>
+              <h3 class="cred-title">Education</h3>
+            </div>
+          </div>
+
+          <div class="cred-list">
+            <div class="cred-item">
+              <div class="cred-year">Pursuing</div>
+              <div class="cred-details">
+                <h4>MBA (Finance)</h4>
+                <p class="inst">XLRI Jamshedpur</p>
+                <p class="sub">One of India's premier management institutions. Specializing in corporate finance, financial derivatives, and capital markets.</p>
+              </div>
+            </div>
+
+            <div class="cred-item">
+              <div class="cred-year">2014</div>
+              <div class="cred-details">
+                <h4>B.Tech in Mechanical Engineering</h4>
+                <p class="inst">Engineering Graduate</p>
+                <p class="sub">Strong quantitative, mathematical, and logical problem-solving backbone enabling advanced financial modeling.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications Column -->
+        <div class="cred-column">
+          <div class="cred-header">
+            <div class="cred-icon gold"><i data-lucide="award"></i></div>
+            <div>
+              <span class="section-eyebrow">PROFESSIONAL ACCREDITATIONS</span>
+              <h3 class="cred-title">Certifications & Diplomas</h3>
+            </div>
+          </div>
+
+          <div class="cert-chips-grid">
+            <div class="cert-card">
+              <div class="cert-year-badge">2020</div>
+              <h5>CAIIB</h5>
+              <p>Certified Associate of Indian Institute of Banking & Finance</p>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-year-badge">2022</div>
+              <h5>Certified Treasury Professional</h5>
+              <p>Indian Institute of Banking & Finance (IIBF)</p>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-year-badge">2022</div>
+              <h5>Bourse Training</h5>
+              <p>National Institute of Bank Management (NIBM)</p>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-year-badge">2017</div>
+              <h5>JAIIB</h5>
+              <p>Junior Associate of Indian Institute of Banking & Finance</p>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-year-badge">2020</div>
+              <h5>FOREX Certification</h5>
+              <p>IIBF Specialized Trade & Foreign Exchange Accreditation</p>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-year-badge">2019-24</div>
+              <h5>Risk, Credit & MSME</h5>
+              <p>Digital Banking Level 1, MSME Credit, Audit & Risk Certifications</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Dossier Modal / Section -->
+  <section id="contact" class="section-padding bg-subtle">
+    <div class="container contact-container">
+      <div class="contact-card">
+        <div class="contact-header">
+          <span class="section-eyebrow">LET'S CONNECT</span>
+          <h2 class="contact-title">Attracting Opportunities In Treasury & Forex Leadership</h2>
+          <p class="contact-desc">
+            Open to senior treasury leadership, Chief Dealer, Senior FX Merchant Dealer, and Institutional Markets roles across premier commercial banks and financial institutions.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="c-icon"><i data-lucide="mail"></i></div>
+            <div class="c-text">
+              <span class="c-label">Official Email</span>
+              <a href="mailto:prashantnanda93@yahoo.com" class="c-value">prashantnanda93@yahoo.com</a>
+              <button class="copy-btn" onclick="copyToClipboard('prashantnanda93@yahoo.com', this)">
+                <i data-lucide="copy"></i> Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="c-icon"><i data-lucide="phone"></i></div>
+            <div class="c-text">
+              <span class="c-label">Direct Mobile</span>
+              <a href="tel:+918789523007" class="c-value">+91 8789523007</a>
+              <button class="copy-btn" onclick="copyToClipboard('+918789523007', this)">
+                <i data-lucide="copy"></i> Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="c-icon"><i data-lucide="map-pin"></i></div>
+            <div class="c-text">
+              <span class="c-label">Location / Current Base</span>
+              <span class="c-value">Mumbai, Maharashtra, India</span>
+              <span class="c-sub">Bandra Kurla Complex (Workplace) / Kandivali West</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="c-icon"><i data-lucide="globe"></i></div>
+            <div class="c-text">
+              <span class="c-label">Professional Profile</span>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="c-value linkedin-link">
+                LinkedIn Executive Profile <i data-lucide="external-link"></i>
+              </a>
+              <span class="c-sub">Verified Experience & Bank of Baroda NOC in order</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-action-bar">
+          <a href="mailto:prashantnanda93@yahoo.com?subject=Opportunity%20Discussion%20-%20Senior%20Treasury%20%26%20Forex%20Role" class="btn btn-gold btn-lg">
+            <i data-lucide="send"></i>
+            <span>Schedule Confidential Discussion</span>
+          </a>
+          <button class="btn btn-outline btn-lg" onclick="window.print()">
+            <i data-lucide="download"></i>
+            <span>Save / Print PDF Dossier</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <span class="footer-name">Prashant Kumar Nanda</span>
+        <span class="footer-note">• Senior Treasury & Forex Specialist • Mumbai, India</span>
+      </div>
+      <div class="footer-right">
+        <span>Languages: English, Hindi, Odia</span>
+        <span class="sep">|</span>
+        <span>Employee Code: 117269 (Bank of Baroda)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contact Modal -->
+  <div id="contactModal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeContactModal()"><i data-lucide="x"></i></button>
+      <div class="modal-header">
+        <div class="modal-icon"><i data-lucide="mail-check"></i></div>
+        <h3>Initiate Professional Contact</h3>
+        <p>Reach out directly to Prashant Kumar Nanda regarding Treasury, FX Dealing, and Markets leadership roles.</p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-contact-row">
+          <span class="label">Email Address:</span>
+          <a href="mailto:prashantnanda93@yahoo.com" class="val">prashantnanda93@yahoo.com</a>
+        </div>
+        <div class="modal-contact-row">
+          <span class="label">Phone:</span>
+          <a href="tel:+918789523007" class="val">+91 8789523007</a>
+        </div>
+        <div class="modal-contact-row">
+          <span class="label">Current Posting:</span>
+          <span class="val">Bank of Baroda, Special Treasury, BKC, Mumbai</span>
+        </div>
+        <div class="modal-actions">
+          <a href="mailto:prashantnanda93@yahoo.com?subject=Inquiry%20from%20Finance%20Portfolio" class="btn btn-gold btn-block">
+            <i data-lucide="send"></i> Send Direct Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
