@@ -1749,3 +1749,77 @@ body {
   }
 }
 
+
+/* --------------------------------------------------
+   PROFESSIONAL PROFILE PHOTO
+   -------------------------------------------------- */
+.profile-photo-card {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(16, 28, 50, 0.9), rgba(9, 17, 33, 0.96));
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+}
+
+.profile-photo-frame {
+  width: 128px;
+  height: 154px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(245, 218, 137, 0.35);
+  background: #0d172a;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+.profile-photo-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.profile-photo-caption strong {
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.profile-photo-caption span {
+  color: var(--gold-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.profile-photo-caption small {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 1024px) {
+  .profile-photo-card {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 560px) {
+  .profile-photo-card {
+    grid-template-columns: 100px 1fr;
+  }
+  .profile-photo-frame {
+    width: 100px;
+    height: 124px;
+  }
+}
