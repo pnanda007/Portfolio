@@ -208,6 +208,21 @@ body {
 .trend.down { color: var(--red-loss); }
 .trend.flat { color: var(--blue-accent); }
 
+.ticker-live-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  white-space: nowrap;
+}
+
+.ticker-live-state .ticker-item {
+  flex-shrink: 0;
+}
+
+.ticker-live-state .trend {
+  font-weight: 600;
+}
+
 /* --------------------------------------------------
    NAVBAR
    -------------------------------------------------- */
