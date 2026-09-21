@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initProfitChart();
   calculateFX();
+  initLiveMarketTicker();
 });
 
 // --------------------------------------------------------------------------
@@ -97,6 +98,103 @@ function initProfitChart() {
 }
 
 // --------------------------------------------------------------------------
+// LIVE MARKET TICKER
+// Uses public reference-rate data in the browser. Quotes are labelled as
+// reference/indicative rather than executable dealing prices.
+// --------------------------------------------------------------------------
+const MARKET_PAIRS = [
+  { label: 'USD/INR', base: 'USD', quote: 'INR', decimals: 2 },
+  { label: 'EUR/INR', base: 'EUR', quote: 'INR', decimals: 2 },
+  { label: 'GBP/INR', base: 'GBP', quote: 'INR', decimals: 2 },
+  { label: 'USD/JPY', base: 'USD', quote: 'JPY', decimals: 2 },
+  { label: 'EUR/USD', base: 'EUR', quote: 'USD', decimals: 4 },
+  { label: 'GBP/USD', base: 'GBP', quote: 'USD', decimals: 4 }
+];
+
+function getPairRate(rates, base, quote) {
+  const basePerEur = rates[base];
+  const quotePerEur = rates[quote];
+  if (!basePerEur || !quotePerEur) return null;
+  return quote === 'EUR' ? (1 / basePerEur) : quotePerEur / basePerEur;
+}
+
+function formatMarketRate(value, decimals) {
+  return Number(value).toFixed(decimals);
+}
+
+function formatChange(change, isBps = false) {
+  if (change === null || Number.isNaN(change)) return '<span class="trend flat">REF</span>';
+  const cls = change > 0 ? 'up' : change < 0 ? 'down' : 'flat';
+  const sign = change > 0 ? '+' : '';
+  const unit = isBps ? ' bps' : '%';
+  return '<span class="trend ' + cls + '">' + sign + change.toFixed(isBps ? 1 : 2) + unit + '</span>';
+}
+
+function tickerItemHTML(label, value, change, decimals) {
+  const safeValue = value == null ? '—' : formatMarketRate(value, decimals);
+  return '<span class="ticker-item"><strong>' + label + '</strong> ' +
+    safeValue + ' ' + formatChange(change, false) + '</span>';
+}
+
+async function fetchJson(url) {
+  const res = await fetch(url, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Market data request failed: ' + res.status);
+  return res.json();
+}
+
+async function fetchECBReferenceRates() {
+  const url = 'https://cdn.jsdelivr.net/gh/AllRates-Today/central-bank-exchange-rates@main/data/ecb/latest.json';
+  const payload = await fetchJson(url);
+  const rates = { EUR: 1 };
+  (payload.rates || []).forEach(r => { rates[r.quote] = Number(r.value); });
+  return { date: payload.date || payload.as_of || 'latest', rates };
+}
+
+async function initLiveMarketTicker() {
+  const host = document.getElementById('liveMarketTicker');
+  const clone = document.getElementById('liveMarketTickerClone');
+  if (!host || !clone) return;
+
+  try {
+    const current = await fetchECBReferenceRates();
+
+    let previous = null;
+    try {
+      const historyUrl = 'https://cdn.jsdelivr.net/gh/AllRates-Today/central-bank-exchange-rates@main/data/ecb/daily/' +
+        current.date + '.json';
+      previous = await fetchJson(historyUrl);
+    } catch (_) {
+      // Previous-day data is optional; ticker still shows latest reference rates.
+    }
+
+    const previousRates = { EUR: 1 };
+    if (previous && previous.rates) {
+      previous.rates.forEach(r => { previousRates[r.quote] = Number(r.value); });
+    }
+
+    const items = MARKET_PAIRS.map(pair => {
+      const value = getPairRate(current.rates, pair.base, pair.quote);
+      const prior = getPairRate(previousRates, pair.base, pair.quote);
+      const change = value != null && prior != null && prior !== 0 ? ((value / prior) - 1) * 100 : null;
+      return tickerItemHTML(pair.label, value, change, pair.decimals);
+    });
+
+    // Add a reference-rate date so the strip is transparent about the data source.
+    items.push('<span class="ticker-item"><strong>ECB REF</strong> ' + current.date +
+      ' <span class="trend flat">REFERENCE</span></span>');
+
+    host.innerHTML = items.join('');
+    clone.innerHTML = host.innerHTML;
+  } catch (error) {
+    host.innerHTML =
+      '<span class="ticker-item"><strong>MARKETS</strong> Reference rates unavailable ' +
+      '<span class="trend down">RETRY</span></span>';
+    clone.innerHTML = host.innerHTML;
+    console.error(error);
+  }
+}
+
+// --------------------------------------------------------------------------
 // 2. Interactive Merchant FX Spread & Profit Calculator
 // --------------------------------------------------------------------------
 const currencyInterbankRates = {
@@ -105,6 +203,9 @@ const currencyInterbankRates = {
   GBPINR: 107.15,
   JPYINR: 0.5510
 };
+
+// These are fallback/indicative values for the interactive calculator.
+// The live ticker above is sourced separately from current reference data.
 
 function updateSpreadDisplay(val) {
   document.getElementById('spreadDisplay').textContent = `${parseFloat(val).toFixed(1)} Paise`;
