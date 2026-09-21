@@ -27,20 +27,11 @@
       <span>MARKETS PULSE</span>
     </div>
     <div class="ticker-scroll-track" id="marketTicker">
-      <!-- Populated via JS with realistic treasury indicators -->
-      <span class="ticker-item"><strong>USD/INR</strong> 83.92 <span class="trend up">+0.04%</span></span>
-      <span class="ticker-item"><strong>EUR/USD</strong> 1.0845 <span class="trend down">-0.12%</span></span>
-      <span class="ticker-item"><strong>RBI REPO RATE</strong> 6.50% <span class="trend flat">UNCH</span></span>
-      <span class="ticker-item"><strong>INDIA 10Y</strong> 6.85% <span class="trend down">-2 bps</span></span>
-      <span class="ticker-item"><strong>US 10Y</strong> 4.18% <span class="trend up">+3 bps</span></span>
-      <span class="ticker-item"><strong>SOFR (1M)</strong> 5.32% <span class="trend flat">SECURED</span></span>
-      <span class="ticker-item"><strong>USD/JPY</strong> 152.40 <span class="trend up">+0.25%</span></span>
-      <span class="ticker-item"><strong>GBP/INR</strong> 107.15 <span class="trend up">+0.18%</span></span>
-      <!-- Loop for continuous marquee -->
-      <span class="ticker-item"><strong>USD/INR</strong> 83.92 <span class="trend up">+0.04%</span></span>
-      <span class="ticker-item"><strong>EUR/USD</strong> 1.0845 <span class="trend down">-0.12%</span></span>
-      <span class="ticker-item"><strong>RBI REPO RATE</strong> 6.50% <span class="trend flat">UNCH</span></span>
-      <span class="ticker-item"><strong>INDIA 10Y</strong> 6.85% <span class="trend down">-2 bps</span></span>
+      <!-- Live FX / rates populated by script.js -->
+      <div id="liveMarketTicker" class="ticker-live-state">
+        <span class="ticker-item"><strong>LOADING MARKETS…</strong> Fetching latest reference rates</span>
+      </div>
+      <div id="liveMarketTickerClone" class="ticker-live-state" aria-hidden="true"></div>
     </div>
   </div>
 
